@@ -1,0 +1,36 @@
+{
+  "name": "ptn-file-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --reporter spec",
+    "cover": "nyc --reporter=lcov npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tak-stuff/ptn-file-parser.git"
+  },
+  "keywords": [
+    "tak",
+    "PTN"
+  ],
+  "contributors": [
+    "Niklas Eicker <hello@nikl.me> (https://www.nikl.me/)",
+    "Jennifer V. Phan <hello@jvphan.me> (https://jvphan.me/)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tak-stuff/ptn-file-parser/issues"
+  },
+  "homepage": "https://github.com/tak-stuff/ptn-file-parser#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.7",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
+    "typescript": "^3.6.4"
+  }
+}
