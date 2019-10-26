@@ -1,7 +1,7 @@
 {
   "name": "ptn-file-parser",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Parse PTN (Portable Tak Notation) files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
