@@ -1,6 +1,6 @@
 const commentRegex = /\[(.*?)\]/g;
 const tagKeyValueRegex = /(.+?) "(.+?)"/g;
-const moveRegex = /(?:\s)((\d+)\. ((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)? ((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)?)/g;
+const moveRegex = /(?:\s)((\d+)\. (?:{.*?} )*((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)? (?:{.*?} )*((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)?(?: {.*?})*)/g;
 
 class PTNFileParser {
   static parsePtnFile(ptnFile: string): Object {
@@ -20,7 +20,7 @@ class PTNFileParser {
     while (move != null) {
       if (round.toString() != move[2]) {
         throw new Error(
-          "Invalid PNG file (inconsistent move number indicators)"
+          `Invalid PNG file (inconsistent move number indicators). Expected ${round}, got ${move[2]}`
         );
       }
       moves.push(move[1]);
