@@ -1,6 +1,6 @@
 const commentRegex = /\[(.*?)\]/g;
 const tagKeyValueRegex = /(.+?) "(.+?)"/g;
-const moveRegex = /(?:\s)((\d+)\. ((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?(?:\*)?)?) ((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?(?:\*)?)?))/g;
+const moveRegex = /(?:\s)((\d+)\. ((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)? ((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)?)/g;
 
 class PTNFileParser {
   static parsePtnFile(ptnFile: string): Object {
@@ -25,7 +25,7 @@ class PTNFileParser {
       }
       moves.push(move[1]);
       whiteMoves.push(move[3]);
-      blackMoves.push(move[4]);
+      blackMoves.push(move[5]);
       move = moveRegex.exec(ptnFile);
       round++;
     }
