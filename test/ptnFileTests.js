@@ -22,6 +22,9 @@ describe("parsing PTN file test", () => {
       blackMoves: []
     });
   });
+  it("should throw error when a move is missing", () => {
+    expect(() => PTNFileParser.parsePtnFile(ptnFile.missingMovePtnFile)).to.throw();
+  });
   it("should return tags", () => {
     var result = PTNFileParser.parsePtnFile("[test \"Test Value 123!.com\"] [AnotherTest2 \"Some value\"]");
     expect(result).to.deep.equal({
