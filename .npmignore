@@ -1,3 +1,5 @@
 lib
+test
+.idea
 coverage
 .nyc_output
