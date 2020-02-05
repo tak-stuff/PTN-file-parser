@@ -9,7 +9,7 @@ This package can parse PTN files as they are [defined by the US Tak assosiation]
 ## Usage
 
 ```js
-const PTNFileParser = require("ptn-file-parser");
+const PtnFileParser = require("ptn-file-parser");
 let ptnFile = `[Site "PlayTak.com"]
 [Event "Online Play"]
 [Date "2018.10.28"]
@@ -29,7 +29,7 @@ let ptnFile = `[Site "PlayTak.com"]
 8. Cb3 1e4<1
 9. 1d3<1 Sd1
 10. a3 1d1+1`;
-let result = PTNFileParser.parsePtnFile(ptnFile);
+let result = PtnFileParser.parsePtnFile(ptnFile);
 ```
 
 result:
