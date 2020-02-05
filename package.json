@@ -8,7 +8,7 @@
     "build": "tsc",
     "lint": "prettier --config .prettierrc --ignore-path .gitignore --check '**/*.{ts,tsx}' && tslint -c tslint.json --project tsconfig.json && jscpd --config jscpd.json src",
     "format": "prettier --config .prettierrc --ignore-path .gitignore --write '**/*.{ts,tsx}' && tslint -c tslint.json --project tsconfig.json --fix",
-    "test": "ts-mocha --reporter spec test/*.ts",
+    "test": "npm run lint && ts-mocha --reporter spec test/*.ts",
     "cover": "nyc --reporter=lcov --show-process-tree npm run test"
   },
   "repository": {

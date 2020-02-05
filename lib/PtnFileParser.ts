@@ -1,7 +1,6 @@
 import PtnFile from './PtnFile';
 
-const commentRegex = /\[(.*?)\]/g;
-const tagKeyValueRegex = /(.+?) "(.+?)"/g;
+const commentRegex = /\[(.*?) [\"\'](.*?)[\"\']\]/g;
 const moveRegex = /(?:\s)((\d+)\. (?:{.*?} )*((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)? (?:{.*?} )*((?:\d)?(?:[CS])?[a-h][1-8](?:[<>+-](?:[1-8]+)?)?)([\*'!?]+)?(?: {.*?})*)/g;
 
 class PtnFileParser {
@@ -9,11 +8,10 @@ class PtnFileParser {
     const tags: { [index: string]: string } = {};
     let tag = commentRegex.exec(ptnFile);
     while (tag !== null) {
-      const tagKeyValue = tagKeyValueRegex.exec(tag[1]);
-      if (tagKeyValue === null || tagKeyValue[1] === null || tagKeyValue[2] === null) {
+      if (tag[1] === null || tag[2] === null) {
         continue;
       }
-      tags[tagKeyValue[1]] = tagKeyValue[2];
+      tags[tag[1]] = tag[2];
       tag = commentRegex.exec(ptnFile);
     }
     const moves: string[] = [];

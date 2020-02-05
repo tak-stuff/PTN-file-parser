@@ -3,16 +3,19 @@ import PtnFileParser from '../lib/PtnFileParser';
 import { commentedPtnFile } from './resources/commentedPtnFile';
 import { missingMovePtnFile } from './resources/missingMovePtnFile';
 import { simplePtnFile } from './resources/simplePtnFile';
+import PtnFile from '../lib/PtnFile';
+
+const emptyPtnFile: PtnFile = {
+  tags: {},
+  moves: [],
+  whiteMoves: [],
+  blackMoves: []
+};
 
 describe('PtnFileParser', () => {
   it('should return empty tags and moves for empty input', () => {
     const result = PtnFileParser.parsePtnFile('');
-    expect(result).to.deep.equal({
-      tags: {},
-      moves: [],
-      whiteMoves: [],
-      blackMoves: []
-    });
+    expect(result).to.deep.equal(emptyPtnFile);
   });
 
   it('should return tag', () => {
@@ -23,6 +26,10 @@ describe('PtnFileParser', () => {
       whiteMoves: [],
       blackMoves: []
     });
+  });
+
+  it('can handle malformed tags', () => {
+    expect(PtnFileParser.parsePtnFile('[tag test]')).to.deep.equal(emptyPtnFile);
   });
 
   it('should throw error when a move is missing', () => {
