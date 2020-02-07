@@ -2,13 +2,13 @@
   "name": "ptn-file-parser",
   "version": "1.1.0",
   "description": "Parse PTN (Portable Tak Notation) files",
-  "main": "dist/PtnFileParser.js",
-  "types": "dist/PtnFileParser.d.ts",
+  "main": "build/ptnFileParser.js",
+  "types": "build/ptnFileParser.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "prettier --config .prettierrc --ignore-path .gitignore --check '**/*.{ts,tsx}' && tslint -c tslint.json --project tsconfig.json && jscpd --config jscpd.json src",
     "format": "prettier --config .prettierrc --ignore-path .gitignore --write '**/*.{ts,tsx}' && tslint -c tslint.json --project tsconfig.json --fix",
-    "test": "npm run lint && ts-mocha --reporter spec test/*.ts",
+    "test": "npm run lint && ts-mocha --reporter spec tests/*.ts",
     "cover": "nyc --reporter=lcov --show-process-tree npm run test"
   },
   "repository": {

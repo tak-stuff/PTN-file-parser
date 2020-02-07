@@ -1,5 +1,7 @@
 {
-  "include": ["lib"],
+  "include": [
+    "src"
+  ],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "target": "es2018",
@@ -24,6 +26,6 @@
     "importHelpers": true,
     "noImplicitAny": true,
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./build"
   }
 }

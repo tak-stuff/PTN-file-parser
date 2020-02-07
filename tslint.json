@@ -1,7 +1,7 @@
 {
   "extends": ["tslint:latest", "tslint-eslint-rules", "tslint-config-prettier"],
   "linterOptions": {
-    "exclude": ["node_modules/**", "dist/**"]
+    "exclude": ["node_modules/**", "build/**"]
   },
   "rules": {
     "ordered-imports": true,
